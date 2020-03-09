@@ -39,7 +39,7 @@ def key_start(key):
     keyb = bin(key)
     print(keyb,"<BIN")
     print(len(keyb), "<")
-    bin_to_list(keyb)	
+    return bin_to_list(keyb)	
 
 def bin_to_list(keyb):
     ls = []
@@ -50,7 +50,7 @@ def bin_to_list(keyb):
     ls.pop(1)
     print("In binary to list")	
     #List is ready, now we should be doing compression algorithm; hence futture function call
-    compression_permutation(ls, pc1)
+    return compression_permutation(ls, pc1)
 
 def compression_permutation(ls,pc1, rk = [], flag = False): #first para: key-list, second: pc1/pc2
     for i in range(len(pc1)):
@@ -59,7 +59,7 @@ def compression_permutation(ls,pc1, rk = [], flag = False): #first para: key-lis
        v1 = int(pc1[i])
        rk.append(ls[v1])
     if flag == False:
-        divide_nd_shift(rk)
+       return  divide_nd_shift(rk)
     else:
         return rk
 
@@ -91,7 +91,7 @@ def divide_nd_shift(rk, shift_bit = 1):
             d1[i] = var
    # print(len(c1), "c1")
   #  print(len(d1), "d1")
-    ready_for_round(c1,d1)
+    return ready_for_round(c1,d1)
 
 def compression_p2(ls, rk = []):
    # rk = []
@@ -110,7 +110,7 @@ def ready_for_round(c1,d1):
     print(len(pc2))
   #  print(lst)
     v1 = compression_p2(lst, rk =[])
-    print( v1)
+    print( v1, "v1")
     return v1
 		
   #  print(c1,d1)
